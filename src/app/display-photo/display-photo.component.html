@@ -1,7 +1,12 @@
 <mat-card class="example-card">
   <h2>Photo App by SK</h2>
   <mat-spinner *ngIf="loader"></mat-spinner>
-  <img mat-card-image [src]="photoUrl" alt="Photo of a Shiba Inu" />
+  <img
+    mat-card-image
+    [src]="photoUrl"
+    alt="Photo of a Shiba Inu"
+    *ngIf="!loader"
+  />
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="getPhoto()">
       Next Photo

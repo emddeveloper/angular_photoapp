@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { pluck } from 'rxjs/operators';
+interface photoResponse {
+  url: string;
+}
+[];
 
 @Injectable({
   providedIn: 'root',
@@ -8,6 +11,8 @@ import { pluck } from 'rxjs/operators';
 export class PhotoService {
   constructor(private http: HttpClient) {}
   getPhotoService() {
-    return this.http.get('https://api.thecatapi.com/v1/images/search');
+    return this.http.get<photoResponse>(
+      'https://api.thecatapi.com/v1/images/search'
+    );
   }
 }
